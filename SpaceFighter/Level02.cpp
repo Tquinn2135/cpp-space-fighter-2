@@ -14,6 +14,8 @@ void Level02::LoadContent(ResourceManager& resourceManager)
 
 	const int COUNT = 22;
 
+	setEnemycount(COUNT);
+
 	double xPositions[COUNT] =
 	{
 		0.25, 0.2, 0.3,

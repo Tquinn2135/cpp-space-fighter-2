@@ -149,6 +149,10 @@ void Level::Update(const GameTime& gameTime)
 		//End James-Lee Section
 	}
 
+	if (m_enemyCount == -1) //--TPQ
+	{
+		GetGameplayScreen()->Exit();
+	}
 
 	for (unsigned int i = 0; i < m_totalSectorCount; i++)
 	{
@@ -159,7 +163,7 @@ void Level::Update(const GameTime& gameTime)
 	}
 	
 	for (Explosion *pExplosion : s_explosions) pExplosion->Update(gameTime);
-
+	
 	if (!m_pPlayerShip->IsActive()) GetGameplayScreen()->Exit();
 }
 
@@ -213,6 +217,7 @@ void Level::SpawnExplosion(GameObject *pExplodingObject)
 	}
 
 	if (!pExplosion) return;
+	DecreaseEnemyCount();	//--TPQ
 
 	const float aproximateTextureRadius = 120;
 	const float objectRadius = pExplodingObject->GetCollisionRadius();

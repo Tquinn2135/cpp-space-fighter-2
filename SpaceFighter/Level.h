@@ -110,6 +110,14 @@ public:
 		return pClosest;
 	}
 
+	virtual void DecreaseEnemyCount() { m_enemyCount--; }
+
+	virtual void setEnemycount(int enemyCount)
+	{
+		m_enemyCount = enemyCount;
+	}
+
+	
 
 protected:
 
@@ -166,4 +174,6 @@ private:
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
 
 	Crosshair* m_Crosshair; //James-Lee
+
+	int m_enemyCount;
 };
