@@ -5,6 +5,7 @@
 #include "PlayerShip.h"
 #include "CollisionManager.h"
 #include "Explosion.h"
+#include "Crosshair.h" //James-Lee
 
 using namespace KatanaEngine;
 
@@ -164,4 +165,5 @@ private:
 
 	virtual std::vector<GameObject*>* GetSectors() { return m_pSectors; }
 
+	Crosshair* m_Crosshair; //James-Lee
 };

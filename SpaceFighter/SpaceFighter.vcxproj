@@ -175,6 +175,7 @@
     <ClCompile Include="BossEnemyShip.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CollisionType.cpp" />
+    <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="EnemyShip.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="BossEnemyShip.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CollisionType.h" />
+    <ClInclude Include="Crosshair.h" />
     <ClInclude Include="EnemyShip.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameObject.h" />

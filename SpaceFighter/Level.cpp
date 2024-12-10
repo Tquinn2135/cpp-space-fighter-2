@@ -50,6 +50,8 @@ Level::Level()
 	pBlaster->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBlaster, Vector2::UNIT_Y * -20);
 
+	m_Crosshair = new Crosshair();//James-Lee
+
 	for (int i = 0; i < 100; i++)
 	{
 		Projectile *pProjectile = new Projectile();
@@ -89,6 +91,8 @@ void Level::LoadContent(ResourceManager& resourceManager)
 {
 	m_pPlayerShip->LoadContent(resourceManager);
 
+	m_Crosshair->LoadContent(resourceManager); //James-Lee
+
 	// Setup explosions if they haven't been already
 	Explosion* pExplosion;
 	if (s_explosions.size() == 0) {
@@ -112,6 +116,8 @@ void Level::HandleInput(const InputState& input)
 	if (IsScreenTransitioning()) return;
 
 	m_pPlayerShip->HandleInput(input);
+
+	m_Crosshair->HandleInput(input); //James-Lee
 }
 
 
@@ -122,12 +128,27 @@ void Level::Update(const GameTime& gameTime)
 		m_pSectors[i].clear();
 	}
 
+
+	bool crosshairFiring = m_Crosshair->Update(gameTime); //James-Lee
+
 	m_gameObjectIt = m_gameObjects.begin();
 	for (; m_gameObjectIt != m_gameObjects.end(); m_gameObjectIt++)
 	{
-		GameObject *pGameObject = (*m_gameObjectIt);
+		GameObject* pGameObject = (*m_gameObjectIt);
 		pGameObject->Update(gameTime);
+
+		//Begin James-Lee Section
+		if (crosshairFiring) {
+			if (pGameObject->IsActive()) {
+				double distance = Vector2::Distance(m_Crosshair->GetPosition(), pGameObject->GetPosition());
+				if (distance < 100) {
+					pGameObject->Hit(3);
+				}
+			}
+		}
+		//End James-Lee Section
 	}
+
 
 	for (unsigned int i = 0; i < m_totalSectorCount; i++)
 	{
@@ -247,6 +268,8 @@ void Level::Draw(SpriteBatch& spriteBatch)
 		GameObject *pGameObject = (*m_gameObjectIt);
 		pGameObject->Draw(spriteBatch);
 	}
+
+	m_Crosshair->Draw(spriteBatch);//James-Lee
 
 	spriteBatch.End();
 
