@@ -110,9 +110,9 @@ public:
 		return pClosest;
 	}
 
-	virtual void DecreaseEnemyCount() { m_enemyCount--; }
+	virtual void DecreaseEnemyCount() { m_enemyCount--; }//--Tpq method
 
-	virtual void setEnemycount(int enemyCount)
+	virtual void setEnemycount(int enemyCount) //-- methodTPQ
 	{
 		m_enemyCount = enemyCount;
 	}
@@ -175,5 +175,5 @@ private:
 
 	Crosshair* m_Crosshair; //James-Lee
 
-	int m_enemyCount;
+	int m_enemyCount; //TPQ
 };

@@ -1,11 +1,11 @@
-#include "BossEnemyShip.h" //Tpq
+#include "BossEnemyShip.h" //TPQ's Class ccp
 #include "level.h"
 
 BossEnemyShip::BossEnemyShip()
 {
-	SetSpeed(100); // change this value to change speed
+	SetSpeed(100); // change this value to change speed. Make adjustments as needed 
 	SetMaxHitPoints(3); //change the hit points
-	SetCollisionRadius(100);
+	SetCollisionRadius(120);
 }
 
 void BossEnemyShip::Update(const GameTime& gameTime)

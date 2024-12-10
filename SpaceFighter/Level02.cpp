@@ -14,7 +14,7 @@ void Level02::LoadContent(ResourceManager& resourceManager)
 
 	const int COUNT = 22;
 
-	setEnemycount(COUNT);
+	setEnemycount(COUNT); //TPQ
 
 	double xPositions[COUNT] =
 	{
@@ -59,12 +59,7 @@ void Level02::LoadContent(ResourceManager& resourceManager)
 		pBossEnemy->SetCurrentLevel(this);
 		pBossEnemy->Initialize(position, (float)delay);
 		AddGameObject(pBossEnemy);
-
-		//delay += 5.0;
-		//GetGameplayScreen()->Exit();
 	}	
-	
-
 
 	SetBackground(resourceManager.Load<Texture>("Textures\\SpaceBackground04.png"));//--TPQ
 	Level::LoadContent(resourceManager);

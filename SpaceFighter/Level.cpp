@@ -149,7 +149,7 @@ void Level::Update(const GameTime& gameTime)
 		//End James-Lee Section
 	}
 
-	if (m_enemyCount == -1) //--TPQ
+	if (m_enemyCount == -1) //--TPQ section
 	{
 		GetGameplayScreen()->Exit();
 	}
@@ -217,7 +217,7 @@ void Level::SpawnExplosion(GameObject *pExplodingObject)
 	}
 
 	if (!pExplosion) return;
-	DecreaseEnemyCount();	//--TPQ
+	DecreaseEnemyCount();	//--TPQ method
 
 	const float aproximateTextureRadius = 120;
 	const float objectRadius = pExplodingObject->GetCollisionRadius();
