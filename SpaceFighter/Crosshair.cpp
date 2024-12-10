@@ -2,16 +2,18 @@
 #include "Crosshair.h"
 
 bool Crosshair::Update(const GameTime& gameTime) {
-
-	if (timeLastFired + 1 < gameTime.GetTotalTime()) {
-		readyToFire = true;
-		m_CurrCrosshairTexture = m_BrightCrosshairTexture;
-	}
+	//Returns to level whether the crosshair is firing
 	if (currentlyFiring) {
+		//Unready Crosshair
 		timeLastFired = gameTime.GetTotalTime();
 		m_CurrCrosshairTexture = m_DarkCrosshairTexture;
 		currentlyFiring = false;
 		return true;
+	}
+	if (timeLastFired + cooldownTime < gameTime.GetTotalTime()) {
+		//Ready Crosshair
+		readyToFire = true;
+		m_CurrCrosshairTexture = m_BrightCrosshairTexture;
 	}
 	return false;
 }
@@ -22,9 +24,9 @@ void Crosshair::Draw(SpriteBatch& spriteBatch) {
 }
 
 void Crosshair::Fire() {
+	//Crosshair is now firing - See Crosshair::Update
 	currentlyFiring = true;
 	readyToFire = false;
-	m_CurrCrosshairTexture = m_DarkCrosshairTexture;
 }
 
 void Crosshair::LoadContent(ResourceManager& resourceManager)

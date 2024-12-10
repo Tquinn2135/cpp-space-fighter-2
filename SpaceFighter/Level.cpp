@@ -142,8 +142,8 @@ void Level::Update(const GameTime& gameTime)
 		if (crosshairFiring) {
 			if (pGameObject->IsActive()) {
 				double distance = Vector2::Distance(m_Crosshair->GetPosition(), pGameObject->GetPosition());
-				if (distance < 100) {
-					pGameObject->Hit(3);
+				if (distance < m_Crosshair->GetRangeOfEffect()) {
+					pGameObject->Hit(m_Crosshair->GetDamage());
 				}
 			}
 		}
