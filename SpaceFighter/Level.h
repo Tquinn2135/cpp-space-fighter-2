@@ -6,6 +6,7 @@
 #include "CollisionManager.h"
 #include "Explosion.h"
 #include "Crosshair.h" //James-Lee
+#include "Blaster.h" //Sam
 
 using namespace KatanaEngine;
 
@@ -162,6 +163,8 @@ private:
 
 	PlayerShip* m_pPlayerShip;
 	std::vector<Projectile*> m_projectiles;
+
+	Blaster* pBlaster; // Sam Fox
 
 	void CheckCollisions(std::vector<GameObject*>& sector);
 

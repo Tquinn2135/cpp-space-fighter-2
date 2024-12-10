@@ -46,7 +46,8 @@ Level::Level()
 
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
-	Blaster *pBlaster = new Blaster("Main Blaster");
+
+	pBlaster = new Blaster("Main Blaster"); // Sam Fox
 	pBlaster->SetProjectilePool(&m_projectiles);
 	m_pPlayerShip->AttachItem(pBlaster, Vector2::UNIT_Y * -20);
 
@@ -203,9 +204,9 @@ void Level::UpdateSectorPosition(GameObject *pGameObject)
 }
 
 
-void Level::SpawnExplosion(GameObject *pExplodingObject)
+void Level::SpawnExplosion(GameObject* pExplodingObject)
 {
-	Explosion *pExplosion = nullptr;
+	Explosion* pExplosion = nullptr;
 
 	for (unsigned int i = 0; i < s_explosions.size(); i++)
 	{
@@ -217,6 +218,16 @@ void Level::SpawnExplosion(GameObject *pExplodingObject)
 	}
 
 	if (!pExplosion) return;
+
+	// Sam Fox if else
+	if (pBlaster->GetCooldownSeconds() >= 0.25) {
+		pBlaster->SetCooldownSeconds(pBlaster->GetCooldownSeconds() * 0.95);
+	}
+	else {
+		std::cout << "Fire rate maxed out.\n";
+	}
+
+
 	DecreaseEnemyCount();	//--TPQ method
 
 	const float aproximateTextureRadius = 120;
