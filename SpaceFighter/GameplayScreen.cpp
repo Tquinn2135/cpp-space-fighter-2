@@ -3,6 +3,7 @@
 #include "MainMenuScreen.h"
 #include "Level.h"
 #include "Level01.h"
+#include "Level02.h"
 
 GameplayScreen::GameplayScreen(const int levelIndex)
 	: m_levelIndex(levelIndex)
@@ -10,7 +11,7 @@ GameplayScreen::GameplayScreen(const int levelIndex)
 	SetTransitionInTime(1);
 	SetTransitionOutTime(3);
 
-	SetOnRemove([this](){ AddScreen(new MainMenuScreen()); });
+	SetOnRemove([this]() { AddScreen(new MainMenuScreen()); });
 
 	Show();
 }
@@ -28,7 +29,9 @@ void GameplayScreen::LoadLevel(const int levelIndex)
 	switch (levelIndex)
 	{
 	case 0: m_pLevel = new Level01(); break;
+	case 1: m_pLevel = new Level02(); break;//Parameter for level02 --TPQ
 	}
+
 
 	m_pLevel->SetGameplayScreen(this);
 	m_pLevel->LoadContent(*m_pResourceManager);

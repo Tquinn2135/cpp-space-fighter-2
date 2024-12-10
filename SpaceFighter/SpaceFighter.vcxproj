@@ -172,6 +172,7 @@
   <ItemGroup>
     <ClCompile Include="BioEnemyShip.cpp" />
     <ClCompile Include="Blaster.cpp" />
+    <ClCompile Include="BossEnemyShip.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="CollisionType.cpp" />
     <ClCompile Include="EnemyShip.cpp" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <ClInclude Include="BioEnemyShip.h" />
     <ClInclude Include="Blaster.h" />
+    <ClInclude Include="BossEnemyShip.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CollisionType.h" />
     <ClInclude Include="EnemyShip.h" />
