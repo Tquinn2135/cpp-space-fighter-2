@@ -3,6 +3,7 @@
 #include "EnemyShip.h"
 #include "Blaster.h"
 #include "GameplayScreen.h"
+#include "DropItem.h"
 
 std::vector<Explosion *> Level::s_explosions;
 
@@ -43,6 +44,8 @@ Level::Level()
 	m_pCollisionManager = new CollisionManager();
 	
 	GameObject::SetCurrentLevel(this);
+
+	//m_DropItem = new DropItem();
 
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
