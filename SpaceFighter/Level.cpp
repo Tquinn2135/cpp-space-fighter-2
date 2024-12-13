@@ -45,10 +45,13 @@ Level::Level()
 	
 	GameObject::SetCurrentLevel(this);
 
+	//if (PlayerShootsEnemy(pObject1, pObject2)) DropItem::Activate(SetPosition());
+
 	//m_DropItem = new DropItem();
 
 	// Setup player ship
 	m_pPlayerShip = new PlayerShip();
+
 
 	pBlaster = new Blaster("Main Blaster"); // Sam Fox
 	pBlaster->SetProjectilePool(&m_projectiles);
@@ -62,6 +65,13 @@ Level::Level()
 		m_projectiles.push_back(pProjectile);
 		AddGameObject(pProjectile);
 	}
+
+	//for (int i = 0; i < 100; i++) // Sam Fox
+	//{
+	//	DropItem* pDropItem = new DropItem();
+	//	m_dropItems.push_back(pDropItem);
+	//	AddGameObject(pDropItem);
+	//}
 	
 	m_pPlayerShip->Activate();
 	AddGameObject(m_pPlayerShip);
@@ -96,6 +106,13 @@ void Level::LoadContent(ResourceManager& resourceManager)
 	m_pPlayerShip->LoadContent(resourceManager);
 
 	m_Crosshair->LoadContent(resourceManager); //James-Lee
+
+	for (int i = 0; i < 100; i++) // Sam Fox
+	{
+		DropItem* pDropItem = new DropItem();
+		m_dropItems.push_back(pDropItem);
+		AddGameObject(pDropItem);
+	}
 
 	// Setup explosions if they haven't been already
 	Explosion* pExplosion;
@@ -165,6 +182,8 @@ void Level::Update(const GameTime& gameTime)
 			CheckCollisions(m_pSectors[i]);
 		}
 	}
+
+	
 	
 	for (Explosion *pExplosion : s_explosions) pExplosion->Update(gameTime);
 	
@@ -221,6 +240,12 @@ void Level::SpawnExplosion(GameObject* pExplodingObject)
 	}
 
 	if (!pExplosion) return;
+
+	//DropItem* pDropItem = new DropItem(); // Sam Fox
+	//pDropItem->SetDropItemPool(&m_dropItems);
+	//pDropItem->Activate(); // Sam Fox
+
+	//pDropItem->Activate();
 
 	// Sam Fox if else
 	if (pBlaster->GetCooldownSeconds() >= 0.25) {

@@ -1,20 +1,20 @@
 #include "DropItem.h"
 #include "Level.h"
 
-//Texture* DropItem::s_pTexture = nullptr;
-Texture* m_DropItemTexture = nullptr;
+Texture* DropItem::s_pTexture = nullptr;
+//Texture* m_DropItemTexture = nullptr;
 
 DropItem::DropItem()
 {
-	SetDirection(-Vector2::UNIT_Y);
+	//SetDirection(Vector2::UNIT_Y); // -Vector2
 	SetCollisionRadius(9);
 }
 
-void DropItem::LoadContent(ResourceManager& resourceManager)
-{
-	m_DropItemTexture = resourceManager.Load<Texture>("Textures\\LogoSmall.png");
-
-}
+//void DropItem::LoadContent(ResourceManager& resourceManager)
+//{
+//	m_DropItemTexture = resourceManager.Load<Texture>("Textures\\LogoSmall.png");
+//
+//}
 
 void DropItem::Update(const GameTime& gameTime)
 {
@@ -24,7 +24,7 @@ void DropItem::Update(const GameTime& gameTime)
 		TranslatePosition(translation);
 
 		Vector2 position = GetPosition();
-		Vector2 size = m_DropItemTexture->GetSize();
+		Vector2 size = s_pTexture->GetSize();
 
 		// Is the projectile off the screen?
 		if (position.Y < -size.Y) Deactivate();
@@ -41,22 +41,27 @@ void DropItem::Draw(SpriteBatch& spriteBatch)
 	if (IsActive())
 	{
 		const float alpha = GetCurrentLevel()->GetAlpha();
-		spriteBatch.Draw(m_pDropItemTexture, GetPosition(), Color::WHITE * alpha, m_pDropItemTexture->GetCenter());
+		spriteBatch.Draw(s_pTexture, GetPosition(), Color::WHITE * alpha, s_pTexture->GetCenter());
 	}
 }
 
-void DropItem::Activate(const Vector2& position)
-{
-	
-	SetPosition(position);
+//DropItem* EnemyShip::GetDropItem()
+//{
+//	for (DropItem* pDropItem : *m_pDropItems)
+//	{
+//		if (!pDropItem->IsActive()) return pDropItem;
+//	}
+//
+//	return nullptr;
+//}
 
-	GameObject::Activate();
-}
-
-std::string DropItem::ToString() const
-{
-	return "Drop Item";
-}
+//void DropItem::Activate(Vector2& position) const 
+//{
+//	
+//	SetPosition(position);
+//
+//	GameObject::Activate();
+//}
 
 //CollisionType DropItem::GetCollisionType() const
 //{

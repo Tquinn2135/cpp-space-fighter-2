@@ -2,6 +2,7 @@
 #pragma once
 
 #include "Ship.h"
+#include "DropItem.h"
 
 /** @brief Represents an enemy ship. */
 class EnemyShip : public Ship
@@ -34,6 +35,8 @@ public:
 		@param damage The amount of damage to apply. */
 	virtual void Hit(const float damage);
 
+	virtual void SetDropItemPool(std::vector<DropItem*>* pDropItems) { m_pdropItems = pDropItems; }
+
 	/** @brief Gets the string representation of the enemy ship.
 		@return Returns the string "Enemy Ship". */
 	virtual std::string ToString() const { return "Enemy Ship"; }
@@ -50,6 +53,8 @@ protected:
 		@return Returns the delay before the enemy ship activates. */
 	virtual double GetDelaySeconds() const { return m_delaySeconds; }
 
+	virtual DropItem* GetDropItem(); // Sam Fox
+
 
 private:
 
@@ -57,5 +62,6 @@ private:
 
 	double m_activationSeconds = 0;
 
+	std::vector<DropItem*>* m_pdropItems = nullptr;
 
 };
