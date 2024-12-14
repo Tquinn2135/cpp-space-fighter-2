@@ -3,6 +3,7 @@
 
 #include "GameObject.h"
 #include "Weapon.h"
+#include "DropItem.h"
 
 /** @brief Represents a ship in the game. */
 class Ship : public GameObject, public IAttachable
@@ -67,6 +68,8 @@ public:
 
 	virtual IAttachment* GetAttachment(const int index);
 
+	DropItem* pDropItem = nullptr; // Sam Fox
+
 
 protected:
 
@@ -97,13 +100,15 @@ protected:
 	float m_maxHitPoints = 3;
 	float m_hitPoints = m_maxHitPoints;
 
+	
+
 private:
 
 	float m_speed = 300; // pixels per second
 
-	
-
 	bool m_isInvulnurable = false;
+
+	
 
 	std::map<std::string, IAttachment *> m_attachments;
 	std::map<std::string, IAttachment*>::iterator m_attachmentIt;

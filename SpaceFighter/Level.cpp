@@ -107,12 +107,12 @@ void Level::LoadContent(ResourceManager& resourceManager)
 
 	m_Crosshair->LoadContent(resourceManager); //James-Lee
 
-	for (int i = 0; i < 100; i++) // Sam Fox
-	{
-		DropItem* pDropItem = new DropItem();
-		m_dropItems.push_back(pDropItem);
-		AddGameObject(pDropItem);
-	}
+	//for (int i = 0; i < 100; i++) // Sam Fox
+	//{
+	//	DropItem* pDropItem = new DropItem();
+	//	m_dropItems.push_back(pDropItem);
+	//	AddGameObject(pDropItem);
+	//}
 
 	// Setup explosions if they haven't been already
 	Explosion* pExplosion;

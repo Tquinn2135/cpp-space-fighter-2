@@ -13,7 +13,9 @@ public:
 	virtual ~DropItem() { }
 
 	//virtual void LoadContent(ResourceManager& resourceManager);
-	static void SetTexture(Texture* pTexture) { s_pTexture = pTexture; }
+	//static void SetTexture(Texture* pTexture) { s_pTexture = pTexture; }
+
+	virtual void LoadContent(ResourceManager& resourceManager);
 
 	/** @brief Set the texture that will be used to render the drop item.
 		@param pTexture A pointer to the texture. */
@@ -40,8 +42,9 @@ public:
 
 	/** @brief Get the type of collision the drop item will have.
 		@return The type of collision the drop item will have. */
-	virtual CollisionType GetCollisionType() const { return m_dropItem; }
+	//virtual CollisionType GetCollisionType() const { return m_dropItem; }
 
+	
 
 protected:
 
@@ -73,22 +76,23 @@ protected:
 		@return The collision type of the drop item. */
 	virtual CollisionType GetProjectileType() const { return CollisionType::Projectile | CollisionType::Player; }
 
+	
 
 private:
 
 	//DropItem* p_DropItem;
 
-	static Texture* s_pTexture;
-	//Texture* m_pDropItemTexture = nullptr;
+	//static Texture* s_pTexture;
+	Texture* m_pDropItemTexture = nullptr;
 
-	float m_speed = 0; // pixels per second
-	float m_damage = -1;
+	float m_speed = 100; // pixels per second
+	float m_damage = 1;
 
 	Vector2 m_direction;
 
 	//Vector2 position = (0, 0);
 
-	CollisionType m_dropItem;
+	//CollisionType m_dropItem;
 
 	//bool m_wasShotByPlayer = true;
 

@@ -48,24 +48,24 @@ void EnemyShip::Initialize(const Vector2 position, const double delaySeconds)
 	Ship::Initialize();
 }
 
-DropItem* EnemyShip::GetDropItem() // Sam Fox
-{
-	for (DropItem* pDropItem : *m_pdropItems)
-	{
-		if (!pDropItem->IsActive()) return pDropItem;
-	}
-
-	return nullptr;
-}
+//DropItem* EnemyShip::GetDropItem() // Sam Fox
+//{
+//	for (DropItem* pDropItem : *m_pdropItems)
+//	{
+//		if (!pDropItem->IsActive()) return pDropItem;
+//	}
+//
+//	return nullptr;
+//}
 
 void EnemyShip::Hit(const float damage)
 {
 	Ship::Hit(damage);
 
-	if (Ship::m_hitPoints <= 0)
-	{
-		//GetDropItem(&pDropItem);
-		//pDropItem->Activate();
-	}
+	//if (Ship::m_hitPoints <= 0)
+	//{
+	//	//GetDropItem(&pDropItem);
+	//	//pDropItem->Activate();
+	//}
 }
 

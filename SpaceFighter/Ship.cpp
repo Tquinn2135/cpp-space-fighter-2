@@ -1,5 +1,6 @@
 
 #include "Ship.h"
+#include "DropItem.h"
 #include "Level.h"
 
 
@@ -26,10 +27,16 @@ void Ship::Hit(const float damage)
 	if (m_isInvulnurable) return;
 
 	m_hitPoints -= damage;
-	if (m_hitPoints > 0) return;
+	if (m_hitPoints > 0)
+	{
+		return;
+	}
+	
 
 	GameObject::Deactivate();
 	GetCurrentLevel()->SpawnExplosion(this);
+	//pDropItem = new DropItem;
+	//pDropItem->Activate(); // Sam Fox
 }
 
 IAttachment* Ship::GetAttachment(const std::string& key)

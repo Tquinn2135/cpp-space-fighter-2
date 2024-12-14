@@ -31,7 +31,7 @@ void SpaceFighter::LoadContent(ResourceManager& resourceManager)
 	// Note: Every level will have these resources, so let's just load them once.
 	Projectile::SetTexture(resourceManager.Load<Texture>("Textures\\Bullet.png"));
 
-	DropItem::SetTexture(resourceManager.Load<Texture>("Textures\\LogoSmall.png")); // Sam Fox
+	
 
 	GetScreenManager()->AddScreen(new MainMenuScreen());
 

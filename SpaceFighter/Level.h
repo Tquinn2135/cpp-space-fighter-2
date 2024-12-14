@@ -164,9 +164,9 @@ private:
 
 	PlayerShip* m_pPlayerShip;
 	std::vector<Projectile*> m_projectiles;
-	std::vector<DropItem*> m_dropItems;
+	//std::vector<DropItem*> m_dropItems;
 
-	DropItem* pDropItem; // Sam Fox
+	//DropItem* pDropItem; // Sam Fox
 
 	Blaster* pBlaster; // Sam Fox
 

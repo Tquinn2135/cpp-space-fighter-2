@@ -53,7 +53,7 @@ protected:
 		@return Returns the delay before the enemy ship activates. */
 	virtual double GetDelaySeconds() const { return m_delaySeconds; }
 
-	virtual DropItem* GetDropItem(); // Sam Fox
+	//virtual DropItem* GetDropItem(); // Sam Fox
 
 
 private:
